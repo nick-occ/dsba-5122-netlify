@@ -1,0 +1,163 @@
+---
+title: What I Learned in DSBA-5122
+author: Nicholas Occhipinti
+date: '2019-04-27'
+slug: what-i-learned-in-dsba-5122
+categories:
+  - blog
+tags:
+  - dsba
+  - visual analytics
+---
+
+# Introduction to R and GGPLOT2
+
+On week 1 we learned what is visual analytics and about the power of R and the different libraries R has to offer to make our lives easier to develop powerful visualizations. and how easy it is to create a visualization in R.  We lear how easy it is to work with data in DPLYR and how to create a simple visualization in GGPLOT2.
+
+After you install the packages you reference them like this
+```{r load-packages, warning=FALSE, message=FALSE, echo=FALSE}
+library(tidyverse)
+library(gapminder)
+library(ggplot2)
+```
+
+And then you can develop something like this:
+
+```{r gapminder}
+gapminder_2007 <- gapminder %>%
+  filter(year == 2007)
+
+head(gapminder_2007)
+```
+
+```{r plot}
+ggplot(data = gapminder_2007, 
+       mapping = aes(x = lifeExp)) +
+  geom_histogram()
+```
+
+# Visual Representations
+
+Over the next couple weeks we dug into what ggplot is and what components make up a ggplot, these are some of my notes from that class.
+
++ Aes- color displays outline color in bar chart, fill sets fill color
++ Labs - set labels in chart
++ Legend may be redundant in some cases
++ Don’t order alphabetically, create factor function passing a vector of values
++ Count - group_by and summarize operations in one return variable n
++ Library treemapify is an extension of ggplot to make a tree map
++ Parallel set comparing data during different periods
++ Ridgeline plot - good for comparison of categories over time gg_ridge
++ Geom_map - for spatial data
+
+# Maps and Time Series
+
+This was a very interesting topic for me since I work with maps at my job, so hearing about what R offers allowed me to see how I could
+use this technology at my work.
+
++ Time series levels - Trend, seasonal, noise
++ Timelinestoryteller.com
++ Scale - small scale vs large scale
++ Projections - Mercator most common
++ Chloropleths - Quantative colors on map
++ The Pudding website
++ Components of gganimate -transitions, views, shadows
+
+# Distributions & Uncertainty
+
+This week we focused on more of the statistical side of data and how model your visualizations show they account for uncertainty.
+
++ Geom_hist, geom_density, geom_violin -Univariant distribution
++ Summary statistics may not tell whole story	
++ Geom_density adjust parameter for kernel density
++ Use log for smoother transformation - Biology, social media, text analysis
++ ggridges -  good for time series where data shifts
++ Bootstraping - sampling with replacement
+
+
+# Multidimensional & Dimensionality Reduction
+
+This class started to go into more detail about the other visualization packages out there.  This really showed me the power of R with
+the vast amount of libraries they offer, and how you could incorporate D3 and Python in your code.  My favorite topics was looking into
+the HTML widgets and seeing how easy it is to incorporate interactivity into your visualization with libraries such as Plotly and Leaflet.  Here are some of the main topics we focused on in class.
+
+
++ Skimr package
++ R2d3 package
++ Datacomb package
++ Dimensionality reduction
+    - Remove columns
+    - Subset of rows
+    - Summarize data
+    - Group data
++ PCA - Principal Components Analysis
+    - New set of variables by linear combination of original variables
++ HTML Widgets 
+    - Leaflet
+    - DT - Data Tables
+    - Plotly, rbokeh, highcharter
+
+# Text as Data
+
+This class was a good one because this is Ryan's main area of researh and we could take a look at a real project he worked on using Twitter data.  Here are some takeaways from the class.
+
++ Rtweet library - Twitter is more restrictive with they data
++ Power Law - Zipfs law to address high dimension data
++ Connected frequent words that are in almost all text (stop words)
++ Preprocessing removing frequent words or nulls
+    - Never a perfect list
++ Bag of words - Vector space representation from documents
+    - Problem sparsity of words that aren’t used frequently
++ Quanteda dataset
++ TF-IDF Weighting
++ Topic Modeling - Latent Dirichlet Allocation
+    - Unsupervised learning technique
+    - Number of topics required
+    
+
+#Networks and Trees
+
+This class showed us how to model data in hierarchical visualization to show how data is related to each other. Towards the end 
+of the class we started to get an introduction to Shiny. These are the topics we discussed:
+
++ Networks -Visual representation of nodes represent instances of data
+    - Connected by edges that represent relationships
++ Tree Map
++ Viz network for interactivity
++ Use () when calling a reactive component
++ Use browser() to create breakpoints
+
+
+
+
+
+
+# Shiny
+
+Over the new few weeks we would being to use Shiny and see how you can take a plot and make it interactive.  In my opinion this is a
+game changer that makes R powerful, because it allows you to spin up a site rather quickly with out much developer experience and then
+customize it however you want.  These are the topics we talked about
+
++ Shiny comes down to inputs and outputs
++ isolate
++ observeEvent
++ reactiveValues - list of reactive values, placeholder
++ Brushing - plotOutput brush parameter
++ Echarts4r library
++ Shiny in production challenges
+    - Cultural - Shiny developers are not software engineer
+    - Organizational - IT skepticism
+    - Technical - slowness, single threaded
++ Shinyloadtest
++ Etl version
++ renderCachedPlot
+
+
+# Summary
+
+OVerall this is a great class and I highly recommend it.  It gave me the knowledge to build Shiny apps and how many different visualizations are out there for us to use.  I think my favorite part was the maps, working with maps on a daily basis, I can definitly
+see myself using R in the future to create dashboard for users at work and developing applications in Shiny so that they are interactive.
+
+
+
+

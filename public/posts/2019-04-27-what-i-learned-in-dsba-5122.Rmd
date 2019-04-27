@@ -1,0 +1,13 @@
+---
+title: What I learned in DSBA-5122
+author: Nicholas Occhipinti
+date: '2019-04-27'
+slug: my-notes-from-dsba-5122
+categories:
+  - blog
+tags:
+  - blog
+description: ''
+externalLink: ''
+series: []
+---

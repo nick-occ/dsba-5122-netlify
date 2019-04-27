@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Nicholas Occhipinti">
+    <meta name="description" content="Nicholas Occhipinti&#39;s Projects">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="What I Learned in DSBA-5122"/>
+<meta name="twitter:description" content="Introduction to R and GGPLOT2On week 1 we learned what is visual analytics and about the power of R and the different libraries R has to offer to make our lives easier to develop powerful visualizations. and how easy it is to create a visualization in R. We lear how easy it is to work with data in DPLYR and how to create a simple visualization in GGPLOT2."/>
+
+    <meta property="og:title" content="What I Learned in DSBA-5122" />
+<meta property="og:description" content="Introduction to R and GGPLOT2On week 1 we learned what is visual analytics and about the power of R and the different libraries R has to offer to make our lives easier to develop powerful visualizations. and how easy it is to create a visualization in R. We lear how easy it is to work with data in DPLYR and how to create a simple visualization in GGPLOT2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/what-i-learned-in-dsba-5122/" />
+<meta property="article:published_time" content="2019-04-27T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-04-27T00:00:00&#43;00:00"/>
+
+
+    
+      <base href="/post/what-i-learned-in-dsba-5122/">
+    
+    <title>
+  What I Learned in DSBA-5122 · Nicholas Occhipinti
+</title>
+
+    
+      <link rel="canonical" href="/post/what-i-learned-in-dsba-5122/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.55.4" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Nicholas Occhipinti
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/post/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/contact/">Contact me</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>What I Learned in DSBA-5122</h1>
+    </header>
+
+    
+
+
+<div id="introduction-to-r-and-ggplot2" class="section level1">
+<h1>Introduction to R and GGPLOT2</h1>
+<p>On week 1 we learned what is visual analytics and about the power of R and the different libraries R has to offer to make our lives easier to develop powerful visualizations. and how easy it is to create a visualization in R. We lear how easy it is to work with data in DPLYR and how to create a simple visualization in GGPLOT2.</p>
+<p>After you install the packages you reference them like this</p>
+<p>And then you can develop something like this:</p>
+<pre class="r"><code>gapminder_2007 &lt;- gapminder %&gt;%
+  filter(year == 2007)
+
+head(gapminder_2007)</code></pre>
+<pre><code>## # A tibble: 6 x 6
+##   country     continent  year lifeExp      pop gdpPercap
+##   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+## 1 Afghanistan Asia       2007    43.8 31889923      975.
+## 2 Albania     Europe     2007    76.4  3600523     5937.
+## 3 Algeria     Africa     2007    72.3 33333216     6223.
+## 4 Angola      Africa     2007    42.7 12420476     4797.
+## 5 Argentina   Americas   2007    75.3 40301927    12779.
+## 6 Australia   Oceania    2007    81.2 20434176    34435.</code></pre>
+<pre class="r"><code>ggplot(data = gapminder_2007, 
+       mapping = aes(x = lifeExp)) +
+  geom_histogram()</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="/post/2019-04-27-what-i-learned-in-dsba-5122_files/figure-html/plot-1.png" width="672" /></p>
+</div>
+<div id="visual-representations" class="section level1">
+<h1>Visual Representations</h1>
+<p>Over the next couple weeks we dug into what ggplot is and what components make up a ggplot, these are some of my notes from that class.</p>
+<ul>
+<li>Aes- color displays outline color in bar chart, fill sets fill color</li>
+<li>Labs - set labels in chart</li>
+<li>Legend may be redundant in some cases</li>
+<li>Don’t order alphabetically, create factor function passing a vector of values</li>
+<li>Count - group_by and summarize operations in one return variable n</li>
+<li>Library treemapify is an extension of ggplot to make a tree map</li>
+<li>Parallel set comparing data during different periods</li>
+<li>Ridgeline plot - good for comparison of categories over time gg_ridge</li>
+<li>Geom_map - for spatial data</li>
+</ul>
+</div>
+<div id="maps-and-time-series" class="section level1">
+<h1>Maps and Time Series</h1>
+<p>This was a very interesting topic for me since I work with maps at my job, so hearing about what R offers allowed me to see how I could use this technology at my work.</p>
+<ul>
+<li>Time series levels - Trend, seasonal, noise</li>
+<li>Timelinestoryteller.com</li>
+<li>Scale - small scale vs large scale</li>
+<li>Projections - Mercator most common</li>
+<li>Chloropleths - Quantative colors on map</li>
+<li>The Pudding website</li>
+<li>Components of gganimate -transitions, views, shadows</li>
+</ul>
+</div>
+<div id="distributions-uncertainty" class="section level1">
+<h1>Distributions &amp; Uncertainty</h1>
+<p>This week we focused on more of the statistical side of data and how model your visualizations show they account for uncertainty.</p>
+<ul>
+<li>Geom_hist, geom_density, geom_violin -Univariant distribution</li>
+<li>Summary statistics may not tell whole story<br />
+</li>
+<li>Geom_density adjust parameter for kernel density</li>
+<li>Use log for smoother transformation - Biology, social media, text analysis</li>
+<li>ggridges - good for time series where data shifts</li>
+<li>Bootstraping - sampling with replacement</li>
+</ul>
+</div>
+<div id="multidimensional-dimensionality-reduction" class="section level1">
+<h1>Multidimensional &amp; Dimensionality Reduction</h1>
+<p>This class started to go into more detail about the other visualization packages out there. This really showed me the power of R with the vast amount of libraries they offer, and how you could incorporate D3 and Python in your code. My favorite topics was looking into the HTML widgets and seeing how easy it is to incorporate interactivity into your visualization with libraries such as Plotly and Leaflet. Here are some of the main topics we focused on in class.</p>
+<ul>
+<li>Skimr package</li>
+<li>R2d3 package</li>
+<li>Datacomb package</li>
+<li>Dimensionality reduction
+<ul>
+<li>Remove columns</li>
+<li>Subset of rows</li>
+<li>Summarize data</li>
+<li>Group data</li>
+</ul></li>
+<li>PCA - Principal Components Analysis
+<ul>
+<li>New set of variables by linear combination of original variables</li>
+</ul></li>
+<li>HTML Widgets
+<ul>
+<li>Leaflet</li>
+<li>DT - Data Tables</li>
+<li>Plotly, rbokeh, highcharter</li>
+</ul></li>
+</ul>
+</div>
+<div id="text-as-data" class="section level1">
+<h1>Text as Data</h1>
+<p>This class was a good one because this is Ryan’s main area of researh and we could take a look at a real project he worked on using Twitter data. Here are some takeaways from the class.</p>
+<ul>
+<li>Rtweet library - Twitter is more restrictive with they data</li>
+<li>Power Law - Zipfs law to address high dimension data</li>
+<li>Connected frequent words that are in almost all text (stop words)</li>
+<li>Preprocessing removing frequent words or nulls
+<ul>
+<li>Never a perfect list</li>
+</ul></li>
+<li>Bag of words - Vector space representation from documents
+<ul>
+<li>Problem sparsity of words that aren’t used frequently</li>
+</ul></li>
+<li>Quanteda dataset</li>
+<li>TF-IDF Weighting</li>
+<li>Topic Modeling - Latent Dirichlet Allocation
+<ul>
+<li>Unsupervised learning technique</li>
+<li>Number of topics required</li>
+</ul></li>
+</ul>
+</div>
+<div id="networks-and-trees" class="section level1">
+<h1>Networks and Trees</h1>
+<p>This class showed us how to model data in hierarchical visualization to show how data is related to each other. Towards the end of the class we started to get an introduction to Shiny. These are the topics we discussed:</p>
+<ul>
+<li>Networks -Visual representation of nodes represent instances of data
+<ul>
+<li>Connected by edges that represent relationships</li>
+</ul></li>
+<li>Tree Map</li>
+<li>Viz network for interactivity</li>
+<li>Use () when calling a reactive component</li>
+<li>Use browser() to create breakpoints</li>
+</ul>
+</div>
+<div id="shiny" class="section level1">
+<h1>Shiny</h1>
+<p>Over the new few weeks we would being to use Shiny and see how you can take a plot and make it interactive. In my opinion this is a game changer that makes R powerful, because it allows you to spin up a site rather quickly with out much developer experience and then customize it however you want. These are the topics we talked about</p>
+<ul>
+<li>Shiny comes down to inputs and outputs</li>
+<li>isolate</li>
+<li>observeEvent</li>
+<li>reactiveValues - list of reactive values, placeholder</li>
+<li>Brushing - plotOutput brush parameter</li>
+<li>Echarts4r library</li>
+<li>Shiny in production challenges
+<ul>
+<li>Cultural - Shiny developers are not software engineer</li>
+<li>Organizational - IT skepticism</li>
+<li>Technical - slowness, single threaded</li>
+</ul></li>
+<li>Shinyloadtest</li>
+<li>Etl version</li>
+<li>renderCachedPlot</li>
+</ul>
+</div>
+<div id="summary" class="section level1">
+<h1>Summary</h1>
+<p>OVerall this is a great class and I highly recommend it. It gave me the knowledge to build Shiny apps and how many different visualizations are out there for us to use. I think my favorite part was the maps, working with maps on a daily basis, I can definitly see myself using R in the future to create dashboard for users at work and developing applications in Shiny so that they are interactive.</p>
+</div>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Please view my projects and if you like what you see...hire me!</p>
+    
+     © 2019
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+       · 
+      [<a href="https://github.com/luizdepra/hugo-coder/tree/"></a>]
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
