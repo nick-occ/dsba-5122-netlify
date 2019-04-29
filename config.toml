@@ -1,6 +1,6 @@
-baseurl = "http://www.example.com"
+baseurl = "https://nick-occ.netlify.com"
 title = "Nicholas Occhipinti"
-
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 theme = "hugo-coder"
 
 languagecode = "en"
@@ -17,6 +17,8 @@ disqusShortname = "yourdiscussshortname"
 
 [params]
     author = "Nicholas Occhipinti"
+    color  = "#fff"
+    homeSubtitle = "A look at my projects."
     description = "Nicholas Occhipinti's Projects"
     keywords = "blog,developer,personal"
     info = "Developer, Student, Data Scientist (someday)"
@@ -55,6 +57,7 @@ disqusShortname = "yourdiscussshortname"
     icon = "fab fa-linkedin"
     weight = 4
     url = "https://www.linkedin.com/in/nicholas-occhipinti-46419067/"
+    
 
 
 [languages]
