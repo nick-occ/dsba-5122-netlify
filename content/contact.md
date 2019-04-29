@@ -3,4 +3,4 @@ slug: contact
 title: Contact
 ---
 
-Follow me, @johndoe.
+Please contact me at [nicholasocchipinti@gmail.com](mailto:nicholasocchipinti@gmail.com).
